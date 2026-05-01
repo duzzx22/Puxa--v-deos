@@ -465,13 +465,12 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 
 ## 📞 Suporte
 
-- **Issues:** https://github.com/seu-usuario/puxa-videos-bot/issues
-- **Discussões:** https://github.com/seu-usuario/puxa-videos-bot/discussions
-- **Email:** seu-email@example.com
+- 
+- **Email:**  duzx22@gmail.com 
 
 ---
 
-## 🙏 Agradecimentos
+n## 🙏 Agradecimentos
 
 - [Telegraf](https://telegraf.js.org/) - Framework Telegram
 - [Winston](https://github.com/winstonjs/winston) - Logging
@@ -480,5 +479,3 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 ---
 
 **⭐ Se este projeto foi útil, deixe uma star!**
-
-Desenvolvido com ❤️ e ☕
