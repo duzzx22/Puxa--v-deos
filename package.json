@@ -1,0 +1,45 @@
+{
+  "name": "puxa-videos-bot",
+  "version": "1.0.0",
+  "description": "Advanced modular Telegram bot with video download, audio extraction, reminders and chat management",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --coverage",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "video-downloader",
+    "audio-extractor",
+    "reminders"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^4.14.1",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "youtube-dl-exec": "^2.3.9",
+    "ffmpeg-static": "^5.1.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "node-schedule": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
+    "@testing-library/jest-dom": "^6.1.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
