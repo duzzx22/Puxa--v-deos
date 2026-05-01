@@ -43,7 +43,7 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.simple()
-      ),
+      )
     }),
 
     // File transport for persistence
@@ -51,7 +51,7 @@ const logger = winston.createLogger({
       filename: config.logging.file,
       maxsize: config.logging.maxSize,
       maxFiles: config.logging.maxFiles,
-      level: config.logging.level,
+      level: config.logging.level
     }),
 
     // Error file for error-only logs
@@ -59,9 +59,9 @@ const logger = winston.createLogger({
       filename: path.join(path.dirname(config.logging.file), 'error.log'),
       level: 'error',
       maxsize: config.logging.maxSize,
-      maxFiles: config.logging.maxFiles,
-    }),
-  ],
+      maxFiles: config.logging.maxFiles
+    })
+  ]
 });
 
 /**
@@ -72,7 +72,7 @@ logger.withContext = (context) => ({
   warn: (message, data = {}) => logger.warn(message, { meta: { context, ...data } }),
   error: (message, error = {}) =>
     logger.error(message, { meta: { context, error: error.message || error, stack: error.stack } }),
-  debug: (message, data = {}) => logger.debug(message, { meta: { context, ...data } }),
+  debug: (message, data = {}) => logger.debug(message, { meta: { context, ...data } })
 });
 
 module.exports = logger;

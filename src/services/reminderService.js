@@ -5,7 +5,7 @@
 
 const remindersRepository = require('../repositories/remindersRepository');
 const logger = require('../utils/logger');
-const { parseTimeString, getDateTimeFormatted } = require('../utils/helpers');
+const { parseTimeString } = require('../utils/helpers');
 
 /**
  * Create a new reminder
@@ -35,14 +35,14 @@ const createReminder = async (userId, chatId, timeStr, message) => {
     targetTime,
     delayMs,
     executed: false,
-    createdAt: Date.now(),
+    createdAt: Date.now()
   });
 
   logger.info('Reminder created', {
     reminderId: reminder.id,
     userId,
     delayMs,
-    message,
+    message
   });
 
   return reminder;
@@ -63,7 +63,7 @@ const listUserReminders = async (userId) => {
       createdAt: r.createdAt,
       targetTime: r.targetTime,
       executed: r.executed,
-      timeUntil: r.executed ? 'Executed' : formatTimeUntil(r.targetTime),
+      timeUntil: r.executed ? 'Executed' : formatTimeUntil(r.targetTime)
     }))
     .sort((a, b) => a.targetTime - b.targetTime);
 };
@@ -143,7 +143,7 @@ const formatReminderMessage = (reminder) => {
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
-    timeZone: process.env.TIMEZONE || 'UTC',
+    timeZone: process.env.TIMEZONE || 'UTC'
   }).format(targetDate);
 
   return `🔔 *Lembrete*\n\n📝 ${reminder.message}\n⏰ Agendado para: ${formatted}`;
@@ -163,7 +163,7 @@ const getRemindersSummary = async (userId) => {
     total: reminders.length,
     pending: pending.length,
     executed: executed.length,
-    nextReminder: pending.length > 0 ? pending[0] : null,
+    nextReminder: pending.length > 0 ? pending[0] : null
   };
 };
 
@@ -175,5 +175,5 @@ module.exports = {
   getPendingReminders,
   executeReminder,
   formatReminderMessage,
-  getRemindersSummary,
+  getRemindersSummary
 };

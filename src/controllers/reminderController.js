@@ -6,7 +6,7 @@
 const reminderService = require('../services/reminderService');
 const logger = require('../utils/logger');
 const { logUserAction } = require('../middlewares/auth');
-const { ERROR_MESSAGES, SUCCESS_MESSAGES } = require('../utils/constants');
+const { SUCCESS_MESSAGES } = require('../utils/constants');
 
 /**
  * Handle /remind <time> <message> command
@@ -46,13 +46,13 @@ const handleReminderCommand = async (ctx) => {
       `🆔 *ID:* \`${reminder.id}\``;
 
     ctx.replyWithMarkdownV2(responseMsg, {
-      reply_to_message_id: ctx.message.message_id,
+      reply_to_message_id: ctx.message.message_id
     });
 
     logger.info('Reminder created successfully', {
       reminderId: reminder.id,
       userId,
-      timeStr,
+      timeStr
     });
   } catch (error) {
     logger.error('Reminder creation failed', error);
@@ -152,5 +152,5 @@ module.exports = {
   handleReminderCommand,
   handleRemindersListCommand,
   handleCancelReminderCommand,
-  notifyReminderExecution,
+  notifyReminderExecution
 };

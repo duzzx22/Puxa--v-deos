@@ -53,7 +53,7 @@ const downloadFile = async (url, filePath, maxSize = config.files.maxFileSizeMB 
       const response = await axios.get(url, {
         timeout: config.files.downloadTimeout,
         responseType: 'stream',
-        maxContentLength: maxSize,
+        maxContentLength: maxSize
       });
 
       // Check file size before downloading
@@ -100,8 +100,6 @@ const downloadFromTikTok = async (url) => {
     // Retry strategy
     return await retryWithExponentialBackoff(async () => {
       // Try using a public API endpoint (simplified for example)
-      const apiUrl = `https://api.tiktok.com/v1/video?url=${encodeURIComponent(url)}`;
-
       // In production, use a real API like:
       // - TikMate API
       // - Snaptik API
@@ -140,12 +138,7 @@ const downloadFromYouTube = async (url) => {
   logger.info('Downloading from YouTube', { url });
 
   try {
-    const { exec } = require('child_process');
-    const { promisify } = require('util');
-    const execAsync = promisify(exec);
-
     await ensureTempDir();
-    const outputPath = generateTempFilePath('youtube');
 
     // Using yt-dlp for downloading
     // Command: yt-dlp -f best -o {output} {url}
@@ -239,5 +232,5 @@ module.exports = {
   downloadFile,
   cleanupTempFile,
   generateTempFilePath,
-  ensureTempDir,
+  ensureTempDir
 };

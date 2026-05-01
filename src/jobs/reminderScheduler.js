@@ -24,7 +24,7 @@ const startReminderScheduler = (bot) => {
   }
 
   logger.info('Starting reminder scheduler', {
-    checkInterval: config.jobs.checkInterval,
+    checkInterval: config.jobs.checkInterval
   });
 
   schedulerInterval = setInterval(async () => {
@@ -48,7 +48,7 @@ const checkAndExecuteReminders = async () => {
     }
 
     logger.debug('Processing pending reminders', {
-      count: pendingReminders.length,
+      count: pendingReminders.length
     });
 
     for (const reminder of pendingReminders) {
@@ -65,12 +65,12 @@ const checkAndExecuteReminders = async () => {
 
         logger.info('Reminder executed', {
           reminderId: reminder.id,
-          userId: reminder.userId,
+          userId: reminder.userId
         });
       } catch (error) {
         logger.error('Failed to execute reminder', {
           reminderId: reminder.id,
-          error: error.message,
+          error: error.message
         });
       }
     }
@@ -96,7 +96,7 @@ const stopReminderScheduler = () => {
 const getSchedulerStatus = () => {
   return {
     running: !!schedulerInterval,
-    interval: config.jobs.checkInterval,
+    interval: config.jobs.checkInterval
   };
 };
 
@@ -104,5 +104,5 @@ module.exports = {
   startReminderScheduler,
   stopReminderScheduler,
   checkAndExecuteReminders,
-  getSchedulerStatus,
+  getSchedulerStatus
 };

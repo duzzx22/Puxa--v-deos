@@ -11,7 +11,7 @@ const COMMAND_PREFIXES = {
   DATE: '/date',
   START: '/start',
   HELP: '/help',
-  STATUS: '/status',
+  STATUS: '/status'
 };
 
 const VIDEO_PLATFORMS = {
@@ -19,32 +19,32 @@ const VIDEO_PLATFORMS = {
   INSTAGRAM: 'instagram',
   YOUTUBE: 'youtube',
   TWITTER: 'twitter',
-  X: 'twitter', // Alias for Twitter/X
+  X: 'twitter' // Alias for Twitter/X
 };
 
 const PLATFORM_PATTERNS = {
   [VIDEO_PLATFORMS.TIKTOK]: [
     /tiktok\.com\/(@[\w.]+\/video|video)\/(\d+)/i,
-    /vm\.tiktok\.com\/(\w+)/i,
+    /vm\.tiktok\.com\/(\w+)/i
   ],
   [VIDEO_PLATFORMS.INSTAGRAM]: [
     /instagram\.com\/(p|reel|tv)\/([a-zA-Z0-9_-]+)/i,
-    /instagr\.am\/(p|reel|tv)\/([a-zA-Z0-9_-]+)/i,
+    /instagr\.am\/(p|reel|tv)\/([a-zA-Z0-9_-]+)/i
   ],
   [VIDEO_PLATFORMS.YOUTUBE]: [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/i,
-    /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/i,
+    /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/i
   ],
   [VIDEO_PLATFORMS.TWITTER]: [
     /twitter\.com\/\w+\/status\/(\d+)/i,
-    /x\.com\/\w+\/status\/(\d+)/i,
-  ],
+    /x\.com\/\w+\/status\/(\d+)/i
+  ]
 };
 
 const TIME_UNITS = {
   SECONDS: 's',
   MINUTES: 'm',
-  HOURS: 'h',
+  HOURS: 'h'
 };
 
 const ERROR_MESSAGES = {
@@ -57,7 +57,7 @@ const ERROR_MESSAGES = {
   USER_BLOCKED: '❌ Você foi bloqueado de usar este bot',
   RATE_LIMIT: '⏱️ Você está fazendo muitas solicitações. Aguarde alguns segundos',
   COMMAND_NOT_FOUND: '❌ Comando não encontrado',
-  INTERNAL_ERROR: '❌ Erro interno do servidor',
+  INTERNAL_ERROR: '❌ Erro interno do servidor'
 };
 
 const SUCCESS_MESSAGES = {
@@ -66,7 +66,7 @@ const SUCCESS_MESSAGES = {
   AUDIO_EXTRACTED: '✅ Áudio extraído com sucesso!',
   REMINDER_SET: '✅ Lembrete configurado!',
   REMINDER_EXECUTED: '🔔 Seu lembrete chegou!',
-  MESSAGES_CLEARED: '✅ Mensagens limpas com sucesso!',
+  MESSAGES_CLEARED: '✅ Mensagens limpas com sucesso!'
 };
 
 const HTTP_STATUS = {
@@ -77,20 +77,20 @@ const HTTP_STATUS = {
   FORBIDDEN: 403,
   NOT_FOUND: 404,
   CONFLICT: 409,
-  INTERNAL_ERROR: 500,
+  INTERNAL_ERROR: 500
 };
 
 const AUDIO_CONFIG = {
   FORMAT: 'mp3',
   BITRATE: '128k',
   SAMPLE_RATE: '44100',
-  CHANNELS: 2,
+  CHANNELS: 2
 };
 
 const TELEGRAM_LIMITS = {
   MAX_FILE_SIZE: 50 * 1024 * 1024, // 50MB
   MAX_MESSAGE_LENGTH: 4096,
-  MAX_MEDIA_GROUP_SIZE: 10,
+  MAX_MEDIA_GROUP_SIZE: 10
 };
 
 const REMINDER_SEPARATOR = ':::';
@@ -101,7 +101,7 @@ const MESSAGE_TYPES = {
   VIDEO: 'video',
   AUDIO: 'audio',
   DOCUMENT: 'document',
-  ANIMATION: 'animation',
+  ANIMATION: 'animation'
 };
 
 module.exports = {
@@ -115,5 +115,5 @@ module.exports = {
   AUDIO_CONFIG,
   TELEGRAM_LIMITS,
   REMINDER_SEPARATOR,
-  MESSAGE_TYPES,
+  MESSAGE_TYPES
 };

@@ -46,7 +46,7 @@ const isRateLimited = (userId) => {
     // First request
     rateLimitStore.set(userId, {
       count: 1,
-      resetTime: now + config.rateLimit.windowMs,
+      resetTime: now + config.rateLimit.windowMs
     });
     return false;
   }
@@ -55,7 +55,7 @@ const isRateLimited = (userId) => {
     // Window expired, reset
     rateLimitStore.set(userId, {
       count: 1,
-      resetTime: now + config.rateLimit.windowMs,
+      resetTime: now + config.rateLimit.windowMs
     });
     return false;
   }
@@ -66,7 +66,7 @@ const isRateLimited = (userId) => {
   if (userLimit.count > config.rateLimit.maxRequests) {
     logger.warn(`Rate limit exceeded for user ${userId}`, {
       requests: userLimit.count,
-      limit: config.rateLimit.maxRequests,
+      limit: config.rateLimit.maxRequests
     });
     return true;
   }
@@ -113,5 +113,5 @@ module.exports = {
   isRateLimited,
   rateLimitMiddleware,
   resetUserRateLimit,
-  getRateLimitInfo,
+  getRateLimitInfo
 };

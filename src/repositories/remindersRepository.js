@@ -81,7 +81,7 @@ const addReminder = async (reminder) => {
     const newReminder = {
       id: `reminder_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       createdAt: Date.now(),
-      ...reminder,
+      ...reminder
     };
 
     reminders.push(newReminder);
@@ -90,7 +90,7 @@ const addReminder = async (reminder) => {
     logger.info('Reminder added', {
       reminderId: newReminder.id,
       userId: reminder.userId,
-      targetTime: reminder.targetTime,
+      targetTime: reminder.targetTime
     });
 
     return newReminder;
@@ -205,7 +205,7 @@ const deleteUserReminders = async (userId) => {
     await saveReminders(filtered);
     logger.info('User reminders deleted', {
       userId,
-      count: beforeCount - filtered.length,
+      count: beforeCount - filtered.length
     });
 
     return beforeCount - filtered.length;
@@ -224,5 +224,5 @@ module.exports = {
   getPendingReminders,
   markAsExecuted,
   deleteReminder,
-  deleteUserReminders,
+  deleteUserReminders
 };

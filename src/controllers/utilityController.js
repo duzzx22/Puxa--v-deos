@@ -44,13 +44,13 @@ const handleStartCommand = async (ctx) => {
   logUserAction(ctx, 'START_COMMAND');
 
   const message =
-    `👋 *Bem-vindo, ${escapeMarkdown(username)\\!*\n\n` +
-    `Eu sou um bot multifuncional com recursos incríveis\\. Digite /help para ver a lista de comandos\\.\n\n` +
-    `🎬 Baixe vídeos\n` +
-    `🎵 Extraia áudio\n` +
-    `⏰ Configure lembretes\n` +
-    `🧹 Limpe bate\\-papos\n` +
-    `📅 Verifique datas`;
+    `👋 *Bem-vindo, ${escapeMarkdown(username)}!*\n\n` +
+    'Eu sou um bot multifuncional com recursos incríveis. Digite /help para ver a lista de comandos.\n\n' +
+    '🎬 Baixe vídeos\n' +
+    '🎵 Extraia áudio\n' +
+    '⏰ Configure lembretes\n' +
+    '🧹 Limpe bate-papos\n' +
+    '📅 Verifique datas';
 
   ctx.replyWithMarkdownV2(message);
 };
@@ -63,51 +63,7 @@ const handleStartCommand = async (ctx) => {
 const handleHelpCommand = async (ctx) => {
   logUserAction(ctx, 'HELP_COMMAND');
 
-  let message =
-    `*📋 Lista de Comandos*
-
-` +
-    `*🎬 Mídia*
-` +
-    `/video <url> \- Baixar vídeo
-` +
-    `/audio <url> \- Extrair áudio de vídeo
-
-` +
-    `*⏰ Lembretes*
-` +
-    `/remind <tempo> <msg> \- Criar lembrete
-` +
-    `/reminders \- Listar lembretes
-` +
-    `/cancel <id> \- Cancelar lembrete
-
-` +
-    `*📅 Utilidades*
-` +
-    `/date \- Ver data/hora
-` +
-    `/status \- Status do bot
-
-` +
-    `*ℹ️ Outros*
-` +
-    `/help \- Esta mensagem
-` +
-    `/start \- Mensagem de boas\-vindas
-`;
-
-  message +=
-    `
-
-*💡 Exemplos:*
-` +
-    `\`/remind 10m Estudar\`
-` +
-    `\`/video https://tiktok.com/...\`
-` +
-    `\`/audio https://youtube.com/...\`;
-
+  const message = '*📋 Lista de Comandos*\n\n*🎬 Mídia*\n/video <url> - Baixar vídeo\n/audio <url> - Extrair áudio de vídeo\n\n*⏰ Lembretes*\n/remind <tempo> <msg> - Criar lembrete\n/reminders - Listar lembretes\n/cancel <id> - Cancelar lembrete\n\n*📅 Utilidades*\n/date - Ver data/hora\n/status - Status do bot\n\n*ℹ️ Outros*\n/help - Esta mensagem\n/start - Mensagem de boas-vindas\n\n*💡 Exemplos:*\n`/remind 10m Estudar`\n`/video https://tiktok.com/...`\n`/audio https://youtube.com/...';
   ctx.replyWithMarkdownV2(message);
 };
 
@@ -127,18 +83,18 @@ const handleStatusCommand = async (ctx) => {
     const dateInfo = getDateTimeFormatted(config.timezone);
 
     const message =
-      `🤖 *Status do Bot*\n\n` +
-      `✅ Status: Ativo\n` +
-      `⏱️ Uptime: ${uptimeHours}h ${uptimeMinutes}m ${uptimeSeconds}s\n` +
-      `💾 Memória: ${heapUsedMB}MB / ${heapTotalMB}MB\n` +
-      `📍 Versão: 1\\.0\\.0\n` +
-      `🌍 Timezone: ${config.timezone}\n` +
-      `🕐 Horário: ${dateInfo.formatted}\n\n` +
-      `📊 *Recursos Ativados:*\n` +
-      `🎬 TikTok: ${config.integrations.tiktok ? '✅' : '❌'}\n` +
-      `📸 Instagram: ${config.integrations.instagram ? '✅' : '❌'}\n` +
-      `▶️ YouTube: ${config.integrations.youtube ? '✅' : '❌'}\n` +
-      `𝕏 Twitter: ${config.integrations.twitter ? '✅' : '❌'}`;
+      '*🤖 Status do Bot*\n\n' +
+      '✅ Status: Ativo\n' +
+      '⏱️ Uptime: ' + uptimeHours + 'h ' + uptimeMinutes + 'm ' + uptimeSeconds + 's\n' +
+      '💾 Memória: ' + heapUsedMB + 'MB / ' + heapTotalMB + 'MB\n' +
+      '📍 Versão: 1.0.0\n' +
+      '🌍 Timezone: ' + config.timezone + '\n' +
+      '🕐 Horário: ' + dateInfo.formatted + '\n\n' +
+      '📊 *Recursos Ativados:*\n' +
+      '🎬 TikTok: ' + (config.integrations.tiktok ? '✅' : '❌') + '\n' +
+      '📸 Instagram: ' + (config.integrations.instagram ? '✅' : '❌') + '\n' +
+      '▶️ YouTube: ' + (config.integrations.youtube ? '✅' : '❌') + '\n' +
+      '𝕏 Twitter: ' + (config.integrations.twitter ? '✅' : '❌');
 
     ctx.replyWithMarkdownV2(message);
 
@@ -156,12 +112,12 @@ const handleStatusCommand = async (ctx) => {
  */
 const escapeMarkdown = (text) => {
   if (!text) return '';
-  return text.replace(/([_*[\]()~`>#+\-.!])/g, '\\\\$1');
+  return text.replace(/([_*[\]()~`>#+\-.!])/g, '\\$1');
 };
 
 module.exports = {
   handleDateCommand,
   handleStartCommand,
   handleHelpCommand,
-  handleStatusCommand,
+  handleStatusCommand
 };

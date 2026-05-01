@@ -42,7 +42,7 @@ const handleAudioCommand = async (ctx) => {
       { source: audioPath },
       {
         caption: `✅ ${SUCCESS_MESSAGES.AUDIO_EXTRACTED}\n📊 Tamanho: ${formatFileSize(audioInfo.size)}\n⏱️ Duração: ${audioInfo.duration}s`,
-        reply_to_message_id: ctx.message.message_id,
+        reply_to_message_id: ctx.message.message_id
       }
     );
 
@@ -74,5 +74,5 @@ const handleAudioCommand = async (ctx) => {
 };
 
 module.exports = {
-  handleAudioCommand,
+  handleAudioCommand
 };

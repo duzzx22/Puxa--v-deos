@@ -39,7 +39,7 @@ const handleVideoCommand = async (ctx) => {
       { source: videoInfo.filePath },
       {
         caption: `✅ Vídeo baixado com sucesso!\n📱 Plataforma: ${videoInfo.platform}`,
-        reply_to_message_id: ctx.message.message_id,
+        reply_to_message_id: ctx.message.message_id
       }
     );
 
@@ -66,5 +66,5 @@ const handleVideoCommand = async (ctx) => {
 };
 
 module.exports = {
-  handleVideoCommand,
+  handleVideoCommand
 };

@@ -3,7 +3,7 @@
  * Utility functions for date/time, parsing, validation, etc
  */
 
-const { TIME_UNITS, PLATFORM_PATTERNS, VIDEO_PLATFORMS } = require('./constants');
+const { TIME_UNITS, PLATFORM_PATTERNS } = require('./constants');
 const logger = require('./logger');
 
 /**
@@ -20,7 +20,7 @@ const getDateTimeFormatted = (timezone = 'UTC') => {
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
-    hour12: false,
+    hour12: false
   });
 
   const parts = formatter.formatToParts(new Date());
@@ -31,7 +31,7 @@ const getDateTimeFormatted = (timezone = 'UTC') => {
     date,
     time,
     formatted: `${date} ${time}`,
-    timestamp: Date.now(),
+    timestamp: Date.now()
   };
 };
 
@@ -104,7 +104,7 @@ const parseCommand = (text) => {
   return {
     command,
     args,
-    rawText: text,
+    rawText: text
   };
 };
 
@@ -198,5 +198,5 @@ module.exports = {
   delay,
   sanitizeUsername,
   generateId,
-  retryWithExponentialBackoff,
+  retryWithExponentialBackoff
 };

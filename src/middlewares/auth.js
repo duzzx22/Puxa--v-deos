@@ -49,12 +49,12 @@ const logUserAction = (ctx, action, data = {}) => {
     username: ctx.from?.username,
     chatId: ctx.chat?.id,
     chatType: ctx.chat?.type,
-    ...data,
+    ...data
   });
 };
 
 module.exports = {
   isBlacklisted,
   verifyUserAccess,
-  logUserAction,
+  logUserAction
 };

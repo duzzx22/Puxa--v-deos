@@ -19,13 +19,13 @@ const { handleAudioCommand } = require('./controllers/audioController');
 const {
   handleReminderCommand,
   handleRemindersListCommand,
-  handleCancelReminderCommand,
+  handleCancelReminderCommand
 } = require('./controllers/reminderController');
 const {
   handleDateCommand,
   handleStartCommand,
   handleHelpCommand,
-  handleStatusCommand,
+  handleStatusCommand
 } = require('./controllers/utilityController');
 
 // Jobs
@@ -46,7 +46,7 @@ const initializeBot = async () => {
     bot = new Telegraf(config.bot.token);
 
     logger.info('🤖 Bot initialized with Telegraf', {
-      botUsername: config.bot.token.substring(0, 10) + '***',
+      botUsername: config.bot.token.substring(0, 10) + '***'
     });
 
     // ============================================
@@ -93,7 +93,7 @@ const initializeBot = async () => {
       logger.error('Bot error caught by error handler', {
         error: err.message,
         stack: err.stack,
-        userId: ctx.from?.id,
+        userId: ctx.from?.id
       });
       ctx.reply('❌ Ocorreu um erro. Por favor, tente novamente.');
     });
@@ -106,7 +106,7 @@ const initializeBot = async () => {
       // Webhook mode for production
       await bot.telegram.setWebhook(config.bot.webhookUrl);
       logger.info('🚀 Bot running in webhook mode', {
-        webhookUrl: config.bot.webhookUrl,
+        webhookUrl: config.bot.webhookUrl
       });
     } else {
       // Polling mode for development
@@ -164,5 +164,5 @@ const getWebhookMiddleware = () => {
 module.exports = {
   initializeBot,
   getBot,
-  getWebhookMiddleware,
+  getWebhookMiddleware
 };

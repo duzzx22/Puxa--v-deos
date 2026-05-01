@@ -3,9 +3,7 @@
  * Handles audio extraction from video files using FFmpeg
  */
 
-const fs = require('fs').promises;
 const path = require('path');
-const config = require('../config');
 const logger = require('../utils/logger');
 const { AUDIO_CONFIG } = require('../utils/constants');
 
@@ -50,7 +48,7 @@ const extractAudio = async (videoPath, options = {}) => {
     logger.info('Audio extraction started', {
       input: videoPath,
       output: outputPath,
-      bitrate,
+      bitrate
     });
 
     ffmpeg(videoPath)
@@ -65,7 +63,7 @@ const extractAudio = async (videoPath, options = {}) => {
       .on('progress', (progress) => {
         logger.debug('Audio extraction progress', {
           timemark: progress.timemark,
-          percent: Math.round(progress.percent),
+          percent: Math.round(progress.percent)
         });
       })
       .on('end', () => {
@@ -135,7 +133,7 @@ const getAudioInfo = async (filePath) => {
         duration: Math.round(duration),
         size,
         bitrate: metadata.format.bit_rate,
-        format: path.extname(filePath).substr(1),
+        format: path.extname(filePath).substr(1)
       });
     });
   });
@@ -162,5 +160,5 @@ module.exports = {
   extractAudioFromUrl,
   getAudioInfo,
   validateAudioFile,
-  generateAudioPath,
+  generateAudioPath
 };

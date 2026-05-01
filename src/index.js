@@ -14,7 +14,7 @@ let server;
 /**
  * Start with webhook (production)
  */
-const startWithWebhook = async (bot) => {
+const startWithWebhook = async () => {
   try {
     const express = require('express');
     app = express();
@@ -27,7 +27,7 @@ const startWithWebhook = async (bot) => {
       res.json({
         status: 'ok',
         timestamp: new Date().toISOString(),
-        uptime: process.uptime(),
+        uptime: process.uptime()
       });
     });
 
@@ -54,7 +54,7 @@ const main = async () => {
     logger.info('🚀 Starting Puxa Vídeos Bot...', {
       env: config.env,
       timezone: config.timezone,
-      version: '1.0.0',
+      version: '1.0.0'
     });
 
     // Initialize bot
@@ -67,7 +67,7 @@ const main = async () => {
 
     logger.info('✅ Bot startup complete', {
       mode: config.env === 'production' ? 'webhook' : 'polling',
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toISOString()
     });
   } catch (error) {
     logger.error('💥 Fatal error during bot startup', error);
@@ -85,7 +85,7 @@ process.on('uncaughtException', (error) => {
 process.on('unhandledRejection', (reason, promise) => {
   logger.error('💥 Unhandled Rejection', {
     reason: reason instanceof Error ? reason.message : reason,
-    promise,
+    promise
   });
 });
 
@@ -97,5 +97,5 @@ if (require.main === module) {
 module.exports = {
   main,
   app,
-  server,
+  server
 };
