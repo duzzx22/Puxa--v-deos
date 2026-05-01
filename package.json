@@ -23,6 +23,7 @@
   "dependencies": {
     "telegraf": "^4.14.1",
     "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
     "winston": "^3.11.0",
     "youtube-dl-exec": "^2.3.9",
     "ffmpeg-static": "^5.1.0",

@@ -68,31 +68,20 @@ npm install
 
 ## ⚙️ Configuração
 
-Este projeto **não depende de arquivo `.env`**. Defina as variáveis de ambiente diretamente no shell ou no ambiente de hospedagem.
+Este projeto permite uso de `.env` para desenvolvimento local. No arquivo `.env`, você precisa definir apenas o token do bot:
 
-### Variáveis de ambiente necessárias
+```env
+BOT_TOKEN=seu_token_aqui
+```
 
-- `BOT_TOKEN` - token do bot Telegram
-- `WEBHOOK_URL` - URL de webhook (opcional em polling)
+Outras configurações são opcionais e podem ser definidas diretamente como variáveis de ambiente no servidor de produção.
+
+### Variáveis de ambiente principais
+
+- `BOT_TOKEN` - token do bot Telegram (obrigatório)
+- `WEBHOOK_URL` - URL de webhook (opcional)
 - `WEBHOOK_PORT` - porta do webhook (padrão: 3000)
-- `BLACKLIST_USERS` - IDs dos usuários bloqueados, separados por vírgula
-- `RATE_LIMIT_ENABLED` - `true` ou `false`
-- `RATE_LIMIT_WINDOW_MS` - intervalo do rate limit em ms
-- `RATE_LIMIT_MAX_REQUESTS` - máximo de requisições por janela
-- `REMINDER_CHECK_INTERVAL` - intervalo em ms para checar lembretes
-- `REMINDERS_FILE` - arquivo JSON para armazenar lembretes
-- `TEMP_DIR` - diretório temporário para downloads
-- `MAX_FILE_SIZE_MB` - tamanho máximo de arquivo em MB
-- `DOWNLOAD_TIMEOUT_MS` - timeout de download em ms
 - `TIMEZONE` - timezone para exibição de datas
-- `LOG_LEVEL` - nível de log (`info`, `debug`, etc.)
-- `LOG_FILE` - arquivo de log
-- `LOG_MAX_SIZE` - tamanho máximo do log em bytes
-- `LOG_MAX_FILES` - quantidade de arquivos de log rotacionados
-- `ENABLE_TIKTOK` - `true` ou `false`
-- `ENABLE_INSTAGRAM` - `true` ou `false`
-- `ENABLE_YOUTUBE` - `true` ou `false`
-- `ENABLE_TWITTER` - `true` ou `false`
 - `NODE_ENV` - `development` ou `production`
 - `DEBUG` - `true` ou `false`
 
@@ -111,7 +100,6 @@ export TIMEZONE="America/Sao_Paulo"
 #### Windows PowerShell
 ```powershell
 $env:BOT_TOKEN = "SEU_TOKEN_AQUI"
-$env:WEBHOOK_PORT = 3000
 ```
 
 ---

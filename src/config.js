@@ -3,6 +3,7 @@
  * Centralized configuration with validation and defaults
  */
 
+require('dotenv').config();
 const path = require('path');
 
 const parseIdList = (value, name) => {
