@@ -6,6 +6,21 @@
 require('dotenv').config();
 const path = require('path');
 
+const parseIdList = (value, name) => {
+  return (value || '')
+    .split(',')
+    .map(id => id.trim())
+    .filter(Boolean)
+    .reduce((result, id) => {
+      if (!/^[0-9]+$/.test(id)) {
+        console.warn(`⚠️  Invalid ${name} value ignored: "${id}"`);
+        return result;
+      }
+      result.push(Number(id));
+      return result;
+    }, []);
+};
+
 const config = {
   // ===== BOT =====
   bot: {
@@ -16,14 +31,8 @@ const config = {
 
   // ===== ADMIN & SECURITY =====
   security: {
-    adminIds: (process.env.ADMIN_IDS || '')
-      .split(',')
-      .map(id => parseInt(id.trim(), 10))
-      .filter(id => !isNaN(id)),
-    blacklistUsers: (process.env.BLACKLIST_USERS || '')
-      .split(',')
-      .map(id => parseInt(id.trim(), 10))
-      .filter(id => !isNaN(id)),
+    adminIds: parseIdList(process.env.ADMIN_IDS, 'ADMIN_IDS'),
+    blacklistUsers: parseIdList(process.env.BLACKLIST_USERS, 'BLACKLIST_USERS'),
   },
 
   // ===== RATE LIMITING =====
