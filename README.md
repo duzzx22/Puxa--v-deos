@@ -80,7 +80,6 @@ Outras configurações são opcionais e podem ser definidas diretamente como var
 
 - `BOT_TOKEN` - token do bot Telegram (obrigatório)
 - `WEBHOOK_URL` - URL de webhook (opcional)
-- `WEBHOOK_PORT` - porta do webhook (padrão: 3000)
 - `TIMEZONE` - timezone para exibição de datas
 - `NODE_ENV` - `development` ou `production`
 - `DEBUG` - `true` ou `false`
@@ -89,7 +88,6 @@ Outras configurações são opcionais e podem ser definidas diretamente como var
 
 ```bash
 export BOT_TOKEN="SEU_TOKEN_AQUI"
-export WEBHOOK_PORT=3000
 export ENABLE_TIKTOK=true
 export ENABLE_INSTAGRAM=true
 export ENABLE_YOUTUBE=true
@@ -171,7 +169,7 @@ O bot segue um padrão modular:
 - `BOT_TOKEN não configurado`: defina `BOT_TOKEN` no ambiente
 - `FFmpeg não instalado`: instale `ffmpeg` no sistema
 - `Arquivo muito grande`: o Telegram limita a 50MB no envio de mídia
-- `Problema de webhook`: verifique `WEBHOOK_URL` e `WEBHOOK_PORT`
+- `Problema de webhook`: verifique `WEBHOOK_URL`
 
 ---
 

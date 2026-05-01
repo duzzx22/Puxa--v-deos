@@ -26,7 +26,7 @@ const config = {
   bot: {
     token: process.env.BOT_TOKEN,
     webhookUrl: process.env.WEBHOOK_URL,
-    webhookPort: parseInt(process.env.WEBHOOK_PORT, 10) || 3000
+    webhookPort: 3000
   },
 
   // ===== SECURITY =====
