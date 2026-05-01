@@ -92,7 +92,7 @@ const rateLimitMiddleware = async (ctx, next) => {
 };
 
 /**
- * Reset rate limit for user (admin override)
+ * Reset rate limit for user
  * @param {number} userId - Telegram user ID
  */
 const resetUserRateLimit = (userId) => {

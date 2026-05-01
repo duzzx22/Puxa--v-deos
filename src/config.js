@@ -29,9 +29,8 @@ const config = {
     webhookPort: parseInt(process.env.WEBHOOK_PORT, 10) || 3000,
   },
 
-  // ===== ADMIN & SECURITY =====
+  // ===== SECURITY =====
   security: {
-    adminIds: parseIdList(process.env.ADMIN_IDS, 'ADMIN_IDS'),
     blacklistUsers: parseIdList(process.env.BLACKLIST_USERS, 'BLACKLIST_USERS'),
   },
 
@@ -88,10 +87,6 @@ const config = {
 const validateConfig = () => {
   if (!config.bot.token) {
     throw new Error('BOT_TOKEN is not configured in environment variables');
-  }
-
-  if (config.security.adminIds.length === 0) {
-    console.warn('⚠️  No ADMIN_IDS configured - admin commands will be unavailable');
   }
 };
 

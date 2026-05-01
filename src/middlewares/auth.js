@@ -1,18 +1,11 @@
 /**
  * Authentication Middleware
- * Validates user access and admin permissions
+ * Validates user access and blacklist permissions
  */
 
 const config = require('../config');
 const logger = require('../utils/logger');
 const { ERROR_MESSAGES } = require('../utils/constants');
-
-/**
- * Check if user is admin
- * @param {number} userId - Telegram user ID
- * @returns {boolean}
- */
-const isAdmin = (userId) => config.security.adminIds.includes(userId);
 
 /**
  * Check if user is blacklisted
@@ -39,22 +32,7 @@ const verifyUserAccess = (ctx, next) => {
   }
 
   ctx.state.userId = userId;
-  ctx.state.isAdmin = isAdmin(userId);
   ctx.state.username = ctx.from?.username || 'anonymous';
-
-  return next();
-};
-
-/**
- * Middleware: Require admin permission
- */
-const requireAdmin = (ctx, next) => {
-  const userId = ctx.from?.id;
-
-  if (!isAdmin(userId)) {
-    logger.warn(`Unauthorized admin attempt by user ${userId}`);
-    return ctx.reply(ERROR_MESSAGES.NO_PERMISSION);
-  }
 
   return next();
 };
@@ -76,9 +54,7 @@ const logUserAction = (ctx, action, data = {}) => {
 };
 
 module.exports = {
-  isAdmin,
   isBlacklisted,
   verifyUserAccess,
-  requireAdmin,
   logUserAction,
 };

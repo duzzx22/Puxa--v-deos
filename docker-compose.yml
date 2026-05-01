@@ -13,7 +13,6 @@ services:
       - BOT_TOKEN=${BOT_TOKEN}
       - WEBHOOK_URL=${WEBHOOK_URL}
       - WEBHOOK_PORT=3000
-      - ADMIN_IDS=${ADMIN_IDS}
       - TIMEZONE=America/Sao_Paulo
       - LOG_LEVEL=info
     volumes:

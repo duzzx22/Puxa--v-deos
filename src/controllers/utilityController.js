@@ -63,46 +63,54 @@ const handleStartCommand = async (ctx) => {
 const handleHelpCommand = async (ctx) => {
   logUserAction(ctx, 'HELP_COMMAND');
 
-  const isAdmin = ctx.state?.isAdmin || false;
-
   let message =
-    `*📋 Lista de Comandos*\n\n` +
-    `*🎬 Mídia*\n` +
-    `/video <url> \\- Baixar vídeo\n` +
-    `/audio <url> \\- Extrair áudio de vídeo\n\n` +
-    `*⏰ Lembretes*\n` +
-    `/remind <tempo> <msg> \\- Criar lembrete\n` +
-    `/reminders \\- Listar lembretes\n` +
-    `/cancel <id> \\- Cancelar lembrete\n\n` +
-    `*📅 Utilidades*\n` +
-    `/date \\- Ver data/hora\n` +
-    `/status \\- Status do bot\n\n` +
-    `*ℹ️ Outros*\n` +
-    `/help \\- Esta mensagem\n` +
-    `/start \\- Mensagem de boas\\-vindas\n`;
+    `*📋 Lista de Comandos*
 
-  if (isAdmin) {
-    message +=
-      `\n*🔐 Comandos Admin*\n` +
-      `/clear <n> \\- Deletar N mensagens\n` +
-      `/ban \\- Banir usuário \\(responder\n` +
-      `/unban <id> \\- Desbanir usuário`;
-  }
+` +
+    `*🎬 Mídia*
+` +
+    `/video <url> \- Baixar vídeo
+` +
+    `/audio <url> \- Extrair áudio de vídeo
+
+` +
+    `*⏰ Lembretes*
+` +
+    `/remind <tempo> <msg> \- Criar lembrete
+` +
+    `/reminders \- Listar lembretes
+` +
+    `/cancel <id> \- Cancelar lembrete
+
+` +
+    `*📅 Utilidades*
+` +
+    `/date \- Ver data/hora
+` +
+    `/status \- Status do bot
+
+` +
+    `*ℹ️ Outros*
+` +
+    `/help \- Esta mensagem
+` +
+    `/start \- Mensagem de boas\-vindas
+`;
 
   message +=
-    `\n\n*💡 Exemplos:*\n` +
-    `\`/remind 10m Estudar\`\n` +
-    `\`/video https://tiktok.com/...\`\n` +
-    `\`/audio https://youtube.com/...\``;
+    `
+
+*💡 Exemplos:*
+` +
+    `\`/remind 10m Estudar\`
+` +
+    `\`/video https://tiktok.com/...\`
+` +
+    `\`/audio https://youtube.com/...\`;
 
   ctx.replyWithMarkdownV2(message);
 };
 
-/**
- * Handle /status command
- * Show bot status
- * @param {object} ctx - Telegraf context
- */
 const handleStatusCommand = async (ctx) => {
   logUserAction(ctx, 'STATUS_COMMAND');
 

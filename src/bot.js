@@ -10,7 +10,7 @@ const config = require('./config');
 const logger = require('./utils/logger');
 
 // Middlewares
-const { verifyUserAccess, requireAdmin } = require('./middlewares/auth');
+const { verifyUserAccess } = require('./middlewares/auth');
 const { rateLimitMiddleware } = require('./middlewares/rateLimit');
 
 // Controllers
@@ -21,11 +21,6 @@ const {
   handleRemindersListCommand,
   handleCancelReminderCommand,
 } = require('./controllers/reminderController');
-const {
-  handleClearCommand,
-  handleBanCommand,
-  handleUnbanCommand,
-} = require('./controllers/chatController');
 const {
   handleDateCommand,
   handleStartCommand,
@@ -83,11 +78,6 @@ const initializeBot = async () => {
     bot.command('remind', handleReminderCommand);
     bot.command('reminders', handleRemindersListCommand);
     bot.command('cancel', handleCancelReminderCommand);
-
-    // 🧹 Chat management (admin only)
-    bot.command('clear', requireAdmin, handleClearCommand);
-    bot.command('ban', requireAdmin, handleBanCommand);
-    bot.command('unban', requireAdmin, handleUnbanCommand);
 
     // 📅 Utility commands
     bot.command('date', handleDateCommand);
