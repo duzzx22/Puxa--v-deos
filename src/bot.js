@@ -3,8 +3,6 @@
  * Initializes Telegraf bot with all handlers, middlewares and features
  */
 
-require('dotenv').config();
-
 const { Telegraf } = require('telegraf');
 const config = require('./config');
 const logger = require('./utils/logger');

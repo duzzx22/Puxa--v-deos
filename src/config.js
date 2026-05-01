@@ -3,7 +3,6 @@
  * Centralized configuration with validation and defaults
  */
 
-require('dotenv').config();
 const path = require('path');
 
 const parseIdList = (value, name) => {
@@ -67,13 +66,10 @@ const config = {
 
   // ===== VIDEO DOWNLOAD =====
   integrations: {
-    tiktok: process.env.ENABLE_TIKTOK === 'true',
-    instagram: process.env.ENABLE_INSTAGRAM === 'true',
-    youtube: process.env.ENABLE_YOUTUBE === 'true',
-    twitter: process.env.ENABLE_TWITTER === 'true',
-    rapidApiKey: process.env.RAPIDAPI_KEY,
-    tiktokApiUrl: process.env.TIKTOK_API_URL,
-    instagramApiUrl: process.env.INSTAGRAM_API_URL
+    tiktok: process.env.ENABLE_TIKTOK !== 'false',
+    instagram: process.env.ENABLE_INSTAGRAM !== 'false',
+    youtube: process.env.ENABLE_YOUTUBE !== 'false',
+    twitter: process.env.ENABLE_TWITTER !== 'false'
   },
 
   // ===== ENVIRONMENT =====
